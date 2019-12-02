@@ -40,7 +40,7 @@ pipelines:
       - name: push_go_binary
         type: GoPublishBinary
         configuration:
-          targetRepository: generic-local
+          targetRepository: go-local
           integrations:
             - name: artdisha
           inputSteps:
