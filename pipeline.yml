@@ -54,3 +54,13 @@ pipelines:
             - name: push_go_binary
           outputResources:
             - name: go_build_info
+      - name: xray
+        type: XrayScan
+        configuration:
+          inputResources:
+            - name: go_build_info    
+        execution:
+          onFailure: 
+            - echo "Vulnerabilities found - please take a look at your watch violations in Xray"
+          onSuccess:
+            - echo "No vulnerabilities - good to proceed"
